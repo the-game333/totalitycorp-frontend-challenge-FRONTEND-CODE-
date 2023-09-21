@@ -14,6 +14,21 @@ const Container = styled.div`
   ${mobile({ padding: "0px", flexDirection:"column" })}
 
 `;
+const Icon = styled.div`
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 10px;
+  transition: all 0.5s ease;
+  &:hover {
+    background-color: #e9f5f5;
+    transform: scale(1.1);
+  }
+`;
 
 const Categories = () => {
   return (<>
