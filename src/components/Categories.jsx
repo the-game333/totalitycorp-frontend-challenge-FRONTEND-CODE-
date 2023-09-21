@@ -18,7 +18,7 @@ const Categories = () => {
         <CategoryItem item={item} key={item.id} />
       ))}
     </Container>
-      <h2 style={{marginRight:40%}}>Hover below items and Click at 🔍 to proceed..!!</h2>
+      <h2 style={{marginLeft:"100px"}}>Hover below items and Click at 🔍 to proceed..!!</h2>
       </>
   );
 };
