@@ -20,7 +20,7 @@ const Success = () => {
       console.log(cart);
       
       try {
-        const res = await userRequest.post("/orders", {
+        const res = await userRequest.post("https://ecommerce-myai.onrender.com/api/orders", {
           userId: currentUser._id,
           products: cart.map((item) => ({
             productId: item._id,
