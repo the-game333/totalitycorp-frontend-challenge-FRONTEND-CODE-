@@ -6,8 +6,10 @@ import Newsletter from "../components/Newsletter";
 import Footer from "../components/Footer";
 import { mobile } from "../responsive";
 import { useLocation } from "react-router";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Product from "./Product";
+import axios from "axios";
+
 const Container = styled.div``;
 
 const Title = styled.h1`
