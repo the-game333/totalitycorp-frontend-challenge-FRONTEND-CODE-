@@ -17,6 +17,7 @@ const Categories = () => {
       {categories.map((item) => (
         <CategoryItem item={item} key={item.id} />
       ))}
+      <h1>Click at 🔍 below to proceed..!!</h1>
     </Container>
   );
 };
