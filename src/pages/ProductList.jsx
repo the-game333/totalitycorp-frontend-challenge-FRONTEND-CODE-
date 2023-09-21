@@ -6,9 +6,7 @@ import Newsletter from "../components/Newsletter";
 import Footer from "../components/Footer";
 import { mobile } from "../responsive";
 import { useLocation } from "react-router";
-import { useState, useEffect } from "react";
-import Product from "./Product";
-import axios from "axios";
+import { useState } from "react";
 
 const Container = styled.div``;
 
@@ -41,8 +39,6 @@ const Select = styled.select`
 const Option = styled.option``;
 
 const ProductList = () => {
-  const [products, setProducts] = useState([]);
-  const [filteredProducts, setFilteredProducts] = useState([]);
   const location = useLocation();
   const cat = location.pathname.split("/")[2];
   const [filters, setFilters] = useState({});
@@ -55,36 +51,6 @@ const ProductList = () => {
       [e.target.name]: value,
     });
   };
-
-
-  useEffect(() => {
-    const getProducts = async () => {
-      try {
-        const res = await axios.get("https://ecommerce-myai.onrender.com/api/products");
-        setProducts(res.data);
-      } catch (err) { }
-    };
-    getProducts();
-  }, []);
-
-
-  useEffect(() => {
-    if (sort === "newest") {
-      setFilteredProducts((prev) =>
-        [...prev].sort((a, b) => a.createdAt - b.createdAt)
-      );
-    } else if (sort === "asc") {
-      setFilteredProducts((prev) =>
-        [...prev].sort((a, b) => a.price - b.price)
-      );
-    } else {
-      setFilteredProducts((prev) =>
-        [...prev].sort((a, b) => b.price - a.price)
-      );
-    }
-  }, [sort]);
-
-
 
   return (
     <Container>
@@ -122,10 +88,6 @@ const ProductList = () => {
         </Filter>
       </FilterContainer>
       <Products cat={cat} filters={filters} sort={sort} />
-      {products
-          .slice(0, 8)
-          .map((item) => <Product item={item} key={item.id} />)}
-
       <Newsletter />
       <Footer />
     </Container>
