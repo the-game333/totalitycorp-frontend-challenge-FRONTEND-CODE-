@@ -77,7 +77,7 @@ const Product = ({ item }) => {
           <ShoppingCartOutlined />
         </Icon>
         <Icon>
-          <Link to={`https://ecommerce-myai.onrender.com/api/product/${item._id}`}>
+          <Link to={`/product/${item._id}`}>
           <SearchOutlined />
           </Link>
         </Icon>

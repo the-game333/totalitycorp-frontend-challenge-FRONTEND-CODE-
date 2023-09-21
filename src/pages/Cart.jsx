@@ -172,7 +172,7 @@ const Cart = () => {
   useEffect(() => {
     const makeRequest = async () => {
       try {
-        const res = await userRequest.post("https://ecommerce-myai.onrender.com/api/checkout/payment", {
+        const res = await userRequest.post("/checkout/payment", {
           tokenId: stripeToken.id,
           amount: cart.total,
         });
