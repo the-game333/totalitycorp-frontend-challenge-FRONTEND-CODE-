@@ -37,11 +37,8 @@ const Categories = () => {
         <CategoryItem item={item} key={item.id} />
       ))}
     </Container>
-      <h2 style={{marginLeft:"350px", fontFamily:"sans-serif"}}>
-        Hover below items and Click at 
-        <Icon>
-          <SearchOutlined />
-        </Icon> to proceed..!!</h2>
+      <p style={{marginLeft:"350px", fontFamily:"sans-serif", fontSize: "20px"}}>
+        Hover below items and Click at <Icon><SearchOutlined /></Icon> to proceed..!!</p>
       </>
   );
 };
