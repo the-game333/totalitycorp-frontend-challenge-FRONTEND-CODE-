@@ -37,7 +37,7 @@ const Categories = () => {
         <CategoryItem item={item} key={item.id} />
       ))}
     </Container>
-      <p style={{marginLeft:"350px", marginTop:"60px", fontFamily:"monospace", fontSize: "30px"}}>
+      <p style={{marginLeft:"350px", marginTop:"40px", fontFamily:"monospace", fontSize: "20px"}}>
         Hover below items and Click at 🔍 to proceed..!!</p>
       </>
   );
