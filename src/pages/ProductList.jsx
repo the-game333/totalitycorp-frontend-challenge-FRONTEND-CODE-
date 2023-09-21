@@ -40,7 +40,7 @@ const Select = styled.select`
 `;
 const Option = styled.option``;
 
-const ProductList = () => {\
+const ProductList = () => {
   const [products, setProducts] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState([]);
   const location = useLocation();
