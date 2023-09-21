@@ -12,13 +12,14 @@ const Container = styled.div`
 `;
 
 const Categories = () => {
-  return (
+  return (<>
     <Container>
       {categories.map((item) => (
         <CategoryItem item={item} key={item.id} />
       ))}
-      <h1>Hover below items and Click at 🔍 to proceed..!!</h1>
     </Container>
+      <h2>Hover below items and Click at 🔍 to proceed..!!</h2>
+      </>
   );
 };
 
