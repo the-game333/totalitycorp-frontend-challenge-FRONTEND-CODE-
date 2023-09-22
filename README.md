@@ -1,70 +1,100 @@
-# Getting Started with Create React App
+# Ecommerce Website -> Cama Store
+## pages
+* Home : ❓
+    * Statis and Dynamic Data 
+    * Top 2 Items clickable
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+* User
+  * Login Page 
+  * Register Page 
 
-## Available Scripts
+* Products❓
+  * All Products on Home Page
+  * Product Details
+    * Description of the product
+    * Add To Cart Button
+    * Changing quantity, size options available    
 
-In the project directory, you can run:
+* Rest api , Improving response  
+## Backend Architecture:  MVC architecture , REST API
+## Database : MongoDb,Mongoose
+## Authentication : Json web token 
+## 3rd party : 
+        * Payment GateWay : Stripe
+         
+## Testing : Postman
+## Frontend : React, Backend : Express
+## Deployment : 
+    * Backend : Render 
+    * Frontend : Netlify
+    * Codebase : Github
+    * Database server : MongoDB Atlas 
+ 
 
-### `npm start`
+## Steps for ordering a product from Ecommerce Website
+* How to order a product
+  
+    * 1st step : click on 🔍 icon on item to proceed further 
+      * Choose size, color, quantity of the item 
+      * Click on "Add to Cart"
+      * Click on Cart buttom at the top right to see the cart.
+      * Click on checkout and make the payment with card Number -> 4242 4242 4242 4242 and any future expiration date and year and any 3 digit CVV number.
+  
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+* Integrate our frontend to our backend -> 
+    *  postman vs frontend
+     * request button-> request || ui button press -> request + loader
+     * response you will get    || response you will -> then you have do some change on ui
+  *  React code explain  
+     *  Step -1 add backend url as proxy to react package.json
+     *  Step- 2 structuring 
+        *  Top : Header -> Home,plan,login/ user profile
+        *  Different Pages
+           *  signup page, profile,login
+     * AuthProvider:
+       *  sync -> if you have a user or not on login and logout 
+       * It also exposes you lossley coupled auth functions -> all them are together 
+     
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Worked for better development
+ * Rectifying status code error ->axios  ✔
+ * Adding Products to your backend :(skeleteon code)
+  1. We are using mvc architecture 
+     1. api level -> main sub-route with your router
+     2. create a productRouter -> remaining route & associating controller fns
+     3. create controller functions -> 
+        1. get,update,delete, 
+        2. create getall
+     4. create model -> db schema 
+ * you first fill your model -> controller -> router
+ * Usage : send data to a particular and following your schema  
+ * Product Schema : category, size, price, color  
+ * All Products Page creation
+ * deployment 
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Deployment 
+   * Backend: (Netlify) 
+     * Implement cors : package cors 
+     * convert your code to work with both process.env ans secrets.js
+         *  put process.env.[private data key ] || require("../secrets)[private data]
+         * Remove static port number : process.env.PORT || 3000
+     
+     * push the code to github
+     *  Render
+        *  -> signup -> create new app
+        *  set Env variables
+             * go to setting -> click on reveal config vars
+             * enter all the secret key value pair
+        *  -> go to deploy 
+        *  -> Connect to a github repo -> enable automatic deploy->deploy branch
+  * Frontend : Netlify
+    * code : add full links when making api request to backend  
+    * Netlify : 
+          * signup -> click on add new site -> import an existing project 
+          * authorize github -> choose your repo
+    * deploy : warnings are converted to errors to prevent that 
+          * in next popup -> in build command put : CI=false npm run build   
